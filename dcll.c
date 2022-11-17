@@ -392,14 +392,6 @@ void show_list(list_t *p_list, const char *msg)
 	puts("[END]");
 }
 
-/*
-        p_list - list_t*
-        &p_list - list_t**
-
-        in p_list -> 10000
-        of p_list -> 2000
-*/
-
 status_t destroy_list(list_t **pp_list)
 {
         list_t *p_list = *pp_list;
@@ -410,8 +402,7 @@ status_t destroy_list(list_t **pp_list)
                 free(p_run);
         }
         free(p_list);
-        //p_list = NULL;
-        //does not work because p_list is a local variable it is destroyed
+        
         *pp_list = NULL;
         return(SUCCESS);
 }
